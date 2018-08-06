@@ -1,0 +1,102 @@
+<mat-card class="example-card">
+
+  <mat-card-content>
+
+    <form #personForm="ngForm" (ngSubmit)="onSubmit(personForm)">
+      <mat-form-field class="example-full-width">
+        <mat-select name="documentType" #documentType="ngModel" [(ngModel)]="personService.selectedPerson.documentType" placeholder="Tipo de documento">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let idtypes of idTypes" [value]="idtypes.name">
+            {{idtypes.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" name="idDocument" #idDocument="ngModel" [(ngModel)]="personService.selectedPerson.document" placeholder="Nº documento">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" name="name" #name="ngModel" [(ngModel)]="personService.selectedPerson.name" placeholder="Nombres">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput type="text" name="lastname" #lastname="ngModel" [(ngModel)]="personService.selectedPerson.lastname" placeholder="Apellidos">
+      </mat-form-field>
+
+      <div style="overflow: hidden;">
+        <mat-datepicker-toggle matSuffix [for]="myDatepicker">
+        </mat-datepicker-toggle>
+        <mat-form-field class="width-date">
+          <input matInput [matDatepicker]="myDatepicker" [max]="maxDate" type="text" name="birthday" #birthday="ngModel" [(ngModel)]="personService.selectedPerson.birthday"
+            placeholder="Fecha nacimiento">
+          <mat-datepicker #myDatepicker></mat-datepicker>
+        </mat-form-field>
+
+      </div>
+
+
+
+      <mat-form-field class="example-full-width">
+        <input type="email" matInput name="email" #email="ngModel" [(ngModel)]="personService.selectedPerson.email" placeholder="Correo electrónico">
+      </mat-form-field>
+
+      <mat-form-field min="7" max="10" class="example-full-width">
+        <input matInput type="text" name="phone" #phone="ngModel" [(ngModel)]="personService.selectedPerson.phone" placeholder="Teléfono">
+      </mat-form-field>
+
+      <div class="example-form">
+        <h2>Información del referente</h2>
+        <mat-checkbox name="check" [(ngModel)]="checked">Sin referencias</mat-checkbox>
+      </div>
+
+      <mat-form-field class="example-full-width" [hidden]="checked">
+        <input matInput type="text" name="referenceName" #referenceName="ngModel" [(ngModel)]="personService.selectedPerson.reference.name"
+          placeholder="Nombres">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" [hidden]="checked">
+        <input matInput type="text" name="referenceLastname" #referenceLastname="ngModel" [(ngModel)]="personService.selectedPerson.reference.lastname"
+          placeholder="Apellidos">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" [hidden]="checked">
+        <mat-select name="referenceKindFamily" #referenceKindFamily="ngModel" [(ngModel)]="personService.selectedPerson.reference.familiarKind"
+          placeholder="Parentesco">
+          <mat-option>Otro</mat-option>
+          <mat-option *ngFor="let kindFamily of listFamiliar" [value]="kindFamily.name">
+            {{kindFamily.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" [hidden]="checked">
+        <input type="email" matInput name="referenceEmail" #referenceEmail="ngModel" [(ngModel)]="personService.selectedPerson.reference.email"
+          placeholder="Correo electrónico">
+      </mat-form-field>
+
+      <mat-form-field min="7" max="10" class="example-full-width" [hidden]="checked">
+        <input matInput type="text" name="referencePhone" #referencePhone="ngModel" [(ngModel)]="personService.selectedPerson.reference.phone"
+          placeholder="Teléfono">
+      </mat-form-field>
+
+
+      <div class="button-div">
+        <button mat-raised-button color="primary" type="submit">Registrarme</button>
+      </div>
+
+    </form>
+  </mat-card-content>
+
+</mat-card>
+
+
+
+<!--
+  <form class="example-form ">
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="Input" [disabled]="!editMode" [(ngModel)]="litre"  [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+</form>
+-->

@@ -1,0 +1,9 @@
+mat-tab-group{
+    justify-content: center;
+    //background-color: rgb(102, 5, 146);
+
+    ::ng-deep .mat-tab-header {
+        margin-bottom: 25px;
+    }
+}
+

@@ -1,0 +1,24 @@
+$main-color: #4650B2;
+
+mat-toolbar{
+    background-color: $main-color; 
+    justify-content: center;
+    color: white;
+    margin-top: -8px;
+    span{
+        font-size:3vw;
+       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    }
+   
+}
+
+.tab-container{
+    margin-bottom: 23px;
+}
+
+button{
+    margin-right: 16px;
+    position: absolute;
+    right: 0;
+}
