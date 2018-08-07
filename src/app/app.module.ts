@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '../../node_modules/@angular/platform-browser/animations';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { FormsModule } from '../../node_modules/@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '../../node_modules/@angular/forms';
 import { TabsComponent } from './toolbar/tabs/tabs.component';
 
 //firebase
@@ -35,6 +35,7 @@ import { PeopleTableComponent } from './toolbar/people-table/people-table.compon
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    ReactiveFormsModule
   ],
   providers: [PersonService],
   bootstrap: [AppComponent]

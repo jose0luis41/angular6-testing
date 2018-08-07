@@ -1,10 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import {MatCommonModule} from '@angular/material/core';
 import {MatToolbarRow, MatToolbar} from '@angular/material/toolbar';
 import { MatIconModule, MatIcon } from '../../../node_modules/@angular/material';
-import { Router, RouterModule, Routes } from '@angular/router';
-import { ListpeopleComponent } from './listpeople/listpeople.component';
+import {routingComponents } from '../app-routing.module';
 
 @Component({
   selector: 'app-toolbar',
@@ -15,7 +14,7 @@ import { ListpeopleComponent } from './listpeople/listpeople.component';
 
 @NgModule({
   declarations: [
-    MatToolbar, MatToolbarRow
+    MatToolbar, MatToolbarRow,
   ],
   imports: [
     MatCommonModule,
@@ -28,11 +27,17 @@ import { ListpeopleComponent } from './listpeople/listpeople.component';
 })
 export class ToolbarComponent implements OnInit {
 
-  formPerson = 'profesionales';
+  formPerson = 'professional';
+  labelManage = true;
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
+   
+  }
+
+  setLabel(value){
+    this.labelManage = value;
   }
 
   btnListPeople = function(){

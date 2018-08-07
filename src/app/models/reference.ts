@@ -3,7 +3,6 @@ export class Reference {
     name: string;
     lastname: string;
     familiarKind: string;
-    birthday : Date;
     email: string;
     phone: string;
 }

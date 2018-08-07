@@ -17,8 +17,14 @@ mat-toolbar{
     margin-bottom: 23px;
 }
 
-button{
+.button-people{
     margin-right: 16px;
     position: absolute;
     right: 0;
+}
+
+.button-return{
+    margin-left: 16px;
+    position: absolute;
+    left: 0;
 }

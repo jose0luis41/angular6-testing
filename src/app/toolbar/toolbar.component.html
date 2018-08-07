@@ -1,7 +1,12 @@
 <mat-toolbar>
-  <span>Formulario de registro para {{formPerson}}</span>
-  <button mat-mini-fab title="Ver registrados" routerLink="/listpeople" routerLinkActive="active">
-      <mat-icon  md-12  aria-label="Ver registrados">view_list</mat-icon>
+<button mat-mini-fab title="Return" routerLink="/register-form"  (click)="setLabel(true)" routerLinkActive="active" class="button-return">
+  <mat-icon md-12 aria-label="Ver registrados">keyboard_return</mat-icon>
+</button>
+  <span *ngIf="labelManage">{{formPerson}} form register</span>
+  <span *ngIf="!labelManage">People list</span>
+
+  <button mat-mini-fab title="Ver registrados" routerLink="/listpeople" (click)="setLabel(false)" routerLinkActive="active" class="button-people">
+      <mat-icon  md-12  aria-label="See people">view_list</mat-icon>
     </button>
 </mat-toolbar>
 
