@@ -8,9 +8,12 @@ export class ServiceDataService {
 
   private titleLabel = new BehaviorSubject<string>("Professional");
   private titleSubLabel = new BehaviorSubject<string>("Reference form");
+  private isProfessional = new BehaviorSubject<boolean>(true);
 
   currentLabel = this.titleLabel.asObservable();
   currentSubLabel = this.titleSubLabel.asObservable();
+  currentProfessional = this.isProfessional.asObservable();
+
   constructor() {
     console.log('ok');
    }
@@ -21,5 +24,9 @@ export class ServiceDataService {
 
   changeSubLabel(label: string){
     this.titleSubLabel.next(label);
+  }
+
+  changeIsProfessional(professional: boolean){
+    this.isProfessional.next(professional);
   }
 }

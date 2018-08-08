@@ -24,6 +24,7 @@ export class TabsComponent implements OnInit {
 
   formPerson:string;
   subLabel: string;
+  isProfessional: boolean;
 
   constructor(private labelData: ServiceDataService) { 
     //this.labelData = new ServiceDataService();
@@ -32,6 +33,7 @@ export class TabsComponent implements OnInit {
   ngOnInit() {
     this.labelData.currentLabel.subscribe(formPerson => this.formPerson = formPerson);
     this.labelData.currentSubLabel.subscribe(subLabel => this.subLabel = subLabel);
+    this.labelData.currentProfessional.subscribe(isProfessional => this.isProfessional = isProfessional)
     //this.tabChanged(new MatTabChangeEvent);
   }
 
@@ -40,7 +42,10 @@ export class TabsComponent implements OnInit {
     if (tabChangeEvent.index === 0) {
       this.changeSubLabelManage('Reference form');
       this.changeLabelManage('Professional');
+      this.changeIsProfessional(true);
+    
     } else {
+      this.changeIsProfessional(false);
       this.changeSubLabelManage('Accompanying person form');
       this.changeLabelManage('Patient');
 
@@ -53,6 +58,10 @@ export class TabsComponent implements OnInit {
 
    changeLabelManage(labelChanged:string){
     this.labelData.changeLabel(labelChanged);
+  }
+
+  changeIsProfessional(isPro:boolean){
+    this.labelData.changeIsProfessional(isPro);
   }
 
 }

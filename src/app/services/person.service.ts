@@ -19,7 +19,6 @@ export class PersonService {
 
   addPerson(person: Person){
     this.getPeople();
-    console.log(Person);
     this.peopleList.push({
       name: person.name,
       lastname: person.lastname,
@@ -28,6 +27,7 @@ export class PersonService {
       birthday : person.birthday.toString(),
       email: person.email,
       phone: person.phone,
+      isProfessional: person.isProfessional,
       reference: person.reference
 
     });

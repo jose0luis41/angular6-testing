@@ -9,5 +9,6 @@ export class Person {
     birthday : string;
     email: string;
     phone: string;
+    isProfessional: string;
     reference: Reference;
 }

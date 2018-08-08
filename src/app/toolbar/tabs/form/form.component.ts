@@ -60,6 +60,7 @@ export class FormComponent implements OnInit {
   { 'id': 4, 'name': 'Tio' }, { 'id': 5, 'name': 'Hermano' }];
 
   checked = false;
+  isProfessional = true;
   maxDate = new Date();
   form: FormGroup;
   submitted = false;
@@ -85,6 +86,7 @@ export class FormComponent implements OnInit {
 
   ngOnInit() {
     this.subLabelData.currentSubLabel.subscribe(subLabel => this.subLabel = subLabel);
+    this.subLabelData.currentProfessional.subscribe(isProfessional => this.isProfessional = isProfessional)
 
     
     this.form = this.fb.group({
@@ -138,8 +140,14 @@ export class FormComponent implements OnInit {
 
   onSubmit(personForm: NgForm) {
     this.submitted = true;
-
+    
     if (this.form.valid) {
+      if(this.isProfessional){
+        this.personService.selectedPerson.isProfessional = 'Professional';
+
+      }else{
+        this.personService.selectedPerson.isProfessional = 'Patient';
+      }
       if (this.checked) {
         this.personService.selectedPerson.reference = new Reference();
         this.personService.selectedPerson.reference.name = "";

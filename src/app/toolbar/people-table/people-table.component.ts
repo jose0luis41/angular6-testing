@@ -16,7 +16,7 @@ export class PeopleTableComponent implements OnInit {
   peopleList: Person[];
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'idtype', 'name', 'lastname', 'referencename', 'email', 'phone'];
+  displayedColumns = ['id', 'idtype', 'name', 'lastname', 'referencename', 'email', 'type'];
 
   constructor(private personService: PersonService){}
 

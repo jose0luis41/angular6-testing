@@ -14,6 +14,7 @@
     max-width: 1000px;
     border-collapse: collapse; 
 }
+/*
 
 @media(max-width: 800px) {
     .responsive_table {
@@ -23,7 +24,38 @@
     .mat-table {
         min-width:800px;
     }
+
+    .mat-row, .mat-header-row {
+        width: 450vw; 
+      }
+      .mat-header-row { 
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+        z-index: 1;
+        background-color: inherit;
+      }
+      .table { 
+        overflow: scroll;
+        display: block
+      }
+   }*/
+
+   @media(max-width: 800px) {
+    .responsive_table {
+        overflow-x: auto !important;
+    }
+
+    .mat-table {
+        min-width:800px;
+    }
 }
+
+
+
+
+	
+
 
 /*
 .mobile-label {
