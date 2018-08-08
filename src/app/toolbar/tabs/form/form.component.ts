@@ -7,6 +7,7 @@ import { Reference } from '../../../models/reference';
 
 import { NgForm, FormControl, Validators, FormGroup, FormBuilder, ReactiveFormsModule, FormsModule } from '../../../../../node_modules/@angular/forms';
 import { Person } from '../../../models/person';
+import { ServiceDataService } from '../../../services/service-data.service';
 
 
 @Component({
@@ -62,11 +63,10 @@ export class FormComponent implements OnInit {
   maxDate = new Date();
   form: FormGroup;
   submitted = false;
-
+  subLabel = "Reference Form"
   @Input('master') name: string;
 
-  constructor(private personService: PersonService, public snackBar: MatSnackBar, private fb: FormBuilder) {
-    //this.form.valueChanges.subscribe(console.log);
+  constructor(private personService: PersonService, private subLabelData: ServiceDataService, public snackBar: MatSnackBar, private fb: FormBuilder) {
     personService.selectedPerson.reference = new Reference();
   }
 
@@ -84,6 +84,9 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.subLabelData.currentSubLabel.subscribe(subLabel => this.subLabel = subLabel);
+
+    
     this.form = this.fb.group({
       'nameForm': ['', Validators.required],
       'documentTypeForm': ['',],

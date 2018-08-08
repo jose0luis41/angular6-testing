@@ -4,7 +4,7 @@
 
     <form #personForm="ngForm" [formGroup]="form" (ngSubmit)="onSubmit(personForm)">
       <mat-form-field class="example-full-width">
-        <mat-select formControlName="documentTypeForm" [(ngModel)]="personService.selectedPerson.documentType" placeholder="Tipo de documento">
+        <mat-select formControlName="documentTypeForm" [(ngModel)]="personService.selectedPerson.documentType" placeholder="Document type">
           <mat-option>None</mat-option>
           <mat-option *ngFor="let idtypes of idTypes" [value]="idtypes.name">
             {{idtypes.name}}
@@ -13,11 +13,11 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput type="text" formControlName="idDocumentForm" [(ngModel)]="personService.selectedPerson.document" placeholder="Nº documento">
+        <input matInput type="text" formControlName="idDocumentForm" [(ngModel)]="personService.selectedPerson.document" placeholder="Id">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput type="text" formControlName="nameForm" [(ngModel)]="personService.selectedPerson.name" placeholder="Nombres"
+        <input matInput type="text" formControlName="nameForm" [(ngModel)]="personService.selectedPerson.name" placeholder="Names"
           required>
       </mat-form-field>
       <div *ngIf="submitted && formGr.nameForm.errors" class="div-errors">
@@ -25,7 +25,7 @@
       </div>
 
       <mat-form-field class="example-full-width">
-        <input matInput type="text" formControlName="lastnameForm" [(ngModel)]="personService.selectedPerson.lastname" placeholder="Apellidos"
+        <input matInput type="text" formControlName="lastnameForm" [(ngModel)]="personService.selectedPerson.lastname" placeholder="Lastname"
           required>
       </mat-form-field>
       <div *ngIf="submitted && formGr.lastnameForm.errors" class="div-errors">
@@ -37,7 +37,7 @@
         </mat-datepicker-toggle>
         <mat-form-field class="width-date">
           <input matInput [matDatepicker]="myDatepicker" [max]="maxDate" type="text" formControlName="datebirthForm" [(ngModel)]="personService.selectedPerson.birthday"
-            placeholder="Fecha nacimiento">
+            placeholder="Birthday">
           <mat-datepicker #myDatepicker></mat-datepicker>
         </mat-form-field>
       </div>
@@ -47,7 +47,7 @@
 
 
       <mat-form-field class="example-full-width">
-        <input type="email" matInput formControlName="emailForm" [(ngModel)]="personService.selectedPerson.email" placeholder="Correo electrónico"
+        <input type="email" matInput formControlName="emailForm" [(ngModel)]="personService.selectedPerson.email" placeholder="Email"
           required>
       </mat-form-field>
       <div *ngIf="submitted && formGr.emailForm.errors" class="div-errors">
@@ -55,7 +55,7 @@
       </div>
 
       <mat-form-field class="example-full-width">
-        <input matInput type="text" formControlName="phoneForm" [(ngModel)]="personService.selectedPerson.phone" placeholder="Teléfono">
+        <input matInput type="text" formControlName="phoneForm" [(ngModel)]="personService.selectedPerson.phone" placeholder="Phone">
       </mat-form-field>
       <div *ngIf="submitted && formGr.phoneForm.errors" class="div-errors">
         <div *ngIf="formGr.phoneForm.errors.minlength">Phone must be at least 7 characters</div>
@@ -63,23 +63,23 @@
       </div>
 
       <div class="example-form">
-        <h2>Información del referente</h2>
-        <mat-checkbox formControlName="checkForm" (click)="setValues()" [(ngModel)]="checked">Sin referencias</mat-checkbox>
+        <h2>{{subLabel}}</h2>
+        <mat-checkbox formControlName="checkForm" (click)="setValues()" [(ngModel)]="checked">None</mat-checkbox>
       </div>
 
 
       <mat-form-field class="example-full-width" [hidden]="checked">
         <input matInput type="text" formControlName="referenceNameForm" [(ngModel)]="personService.selectedPerson.reference.name"
-          placeholder="Nombres">
+          placeholder="Names">
       </mat-form-field>
 
       <mat-form-field class="example-full-width" [hidden]="checked">
         <input matInput type="text" formControlName="referenceLastnameForm" [(ngModel)]="personService.selectedPerson.reference.lastname"
-          placeholder="Apellidos">
+          placeholder="Lastname">
       </mat-form-field>
 
       <mat-form-field class="example-full-width" [hidden]="checked">
-        <mat-select formControlName="referenceKindFamilyForm" [(ngModel)]="personService.selectedPerson.reference.familiarKind" placeholder="Parentesco">
+        <mat-select formControlName="referenceKindFamilyForm" [(ngModel)]="personService.selectedPerson.reference.familiarKind" placeholder="Related">
           <mat-option>Otro</mat-option>
           <mat-option *ngFor="let kindFamily of listFamiliar" [value]="kindFamily.name">
             {{kindFamily.name}}
@@ -89,12 +89,12 @@
 
       <mat-form-field class="example-full-width" [hidden]="checked">
         <input type="email" matInput formControlName="referenceEmailForm" [(ngModel)]="personService.selectedPerson.reference.email"
-          placeholder="Correo electrónico">
+          placeholder="Email">
       </mat-form-field>
 
       <mat-form-field min="7" max="10" class="example-full-width" [hidden]="checked">
         <input matInput type="text" formControlName="referencePhoneForm" [(ngModel)]="personService.selectedPerson.reference.phone"
-          placeholder="Teléfono">
+          placeholder="Phone">
       </mat-form-field>
 
 

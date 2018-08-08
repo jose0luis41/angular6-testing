@@ -17,6 +17,7 @@ import { FormComponent } from './toolbar/tabs/form/form.component';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { PeopleTableComponent } from './toolbar/people-table/people-table.component';
+import { ServiceDataService } from './services/service-data.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { PeopleTableComponent } from './toolbar/people-table/people-table.compon
     MatSortModule,
     ReactiveFormsModule
   ],
-  providers: [PersonService],
+  providers: [PersonService, ServiceDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
