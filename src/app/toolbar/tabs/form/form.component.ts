@@ -165,6 +165,8 @@ export class FormComponent implements OnInit {
         this.personService.selectedPerson = new Person();
         this.personService.selectedPerson.reference = new Reference();
       }
+          this.submitted = false;
+
     } else {
       this.openSnackBar(false);
     }
